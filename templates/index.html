@@ -1,0 +1,294 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kamran Baloch-Portfolio & Blog</title>
+    <link rel="stylesheet" href="{%static 'main.css' %}">
+    <!-- Bootstrap css code  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+        type='text/css'>
+    <style>
+        hr {
+            position: relative;
+            top: 20px;
+            border: none;
+            height: 10px;
+            background: lightseagreen;
+            margin-bottom: 50px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #fff;
+        }
+
+        .navbar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            margin-left: -300px;
+            background-color: black;
+            transition: 0.4s;
+        }
+
+        .nav-link {
+            font-size: 1.25em;
+        }
+
+        .nav-link:active,
+        .nav-link:focus,
+        .nav-link:hover {
+            background-color: #ffffff26;
+        }
+
+        .dropdown-menu {
+            background-color: #7952b3;
+        }
+
+        .dropdown-item:active,
+        .dropdown-item:focus,
+        .dropdown-item:hover {
+            background-color: #ffffff26;
+        }
+
+        .my-container {
+            transition: 0.4s;
+        }
+
+
+        /* for navbar */
+
+        .active-nav {
+            margin-left: 0;
+        }
+
+
+        /* for main section */
+
+        .active-cont {
+            margin-left: 250px;
+        }
+
+        #menu-btn {
+            background-color: white;
+            color: black;
+        }
+
+        #menu-btn:focus {
+            box-shadow: 0 0 0 0.25rem #7952b344;
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+    {% if messages %}
+    {% for msg in messages %}
+
+    <div class="alert alert-{{ msg.tags }}" role="alert">
+        <p>{{ msg }}</p>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+    <nav class="navbar navbar-expand d-flex flex-column align-item-start" id="sidebar">
+
+        <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+            <li class="nav-item w-100">
+                <a href="" class="nav-link text-light pl-4">Home</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="allprojects" class="nav-link text-light pl-4">Projects</a>
+            </li>
+            <li class="nav-item w-100">
+                <a href="blogs" class="nav-link text-light pl-4">Blogs</a>
+            </li>
+
+
+            <li class="nav-item w-100">
+                <a href="contact" class="nav-link text-light pl-4">Contact</a>
+            </li>
+            {% if user.is_authenticated%}
+            <li class="nav-item w-100">
+                <a style="width: 100px;" href="logout" class=" nav-link  text-light pl-4">
+                    <button type="button" class="btn btn-danger  ">LogOut</button>
+
+                </a>
+            </li>
+            {%else%}
+
+            <div class="row ml-3">
+                <div class="col-md-3 mt-2">
+                    <a href="login"><button type="button" class="btn btn-primary  ">Login</button></a>
+                </div>
+                <div class="col-md-3 mt-2">
+                    <a href="signup"><button type="button" class="btn btn-primary  ">Signup</button></a>
+                </div>
+            </div>
+            {%endif%}
+
+        </ul>
+
+
+
+
+    </nav>
+    <section class="p-4 my-container text-white">
+        <button class="btn bg-white my-4 " id="menu-btn">
+
+
+            <i class="fa  fa-2x  fa-bars" aria-hidden="true"></i>
+
+
+
+        </button>
+
+
+    </section>
+
+
+
+
+    <!-- Start Intro container  -->
+
+
+    <div class="container-fluid   mt-5 ">
+        <div class="row p-5">
+            <div class="col-md-6">
+                <img width="90%" height="90%" src="{%static 'main.jpg' %}" alt="" srcset="">
+            </div>
+            <div class="col-md-6 text-white">
+                <h4>
+                    Hello! I’m Jack Baloch. Full-stack Web developer from Turbat, Balochistan. I
+                    have rich experience in website design and development. I work with powerful programming languages
+                    including Python, JavaScript, and PHP. I will be very satisfied with my work if it brings happiness
+                    and fortune to others’ life. I’m just a message away
+                </h4>
+                <p style="font-size: 17px;" class="mt-5 ">
+                    As a freelancer, I wear many hats, and I’m involved in numerous roles besides web development such
+                    as managing multiple projects, logo designing, photoshop, and idea creation. I’m a creative problem
+                    solver, carefully combining design and secured development, resulting in well-formulated website
+                    solutions.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- End Intro container  -->
+
+    <div style="background-color:black ;" class="container-fluid p-5 text-white">
+
+        <center>
+            <h3 style="color: yellow;">SELECTED PROJECTS</h3>
+        </center>
+        <div class="row justify-content-center mt-5 ">
+
+            {%for i in projects%}
+
+            <div class="col-md-3 mb-5 mt-4">
+
+                <a href="project/{{i.slug}}"><img class="" width="100%" height="100%" src="/media/{{i.tumbnail}}" alt=""
+                        srcset=""></a>
+                <center>
+                    <h4 class="mt-4 ">{{i.name}}</h4>
+                </center>
+            </div>
+            {%endfor%}
+
+
+
+        </div>
+
+
+        <center>
+            <hr class="mt-5 " />
+        </center>
+
+
+        <center>
+
+            <div>
+
+                <p style="color: white;font-size: 55px;font-style: italic;">Let’s work together</p>
+                <h6 style="color: yellow;font-size: 35px;font-style: italic;">ask@kamranbaloch.com</h6>
+            </div>
+
+        </center>
+
+    </div>
+
+
+
+
+
+    <!-- Footer -->
+
+
+
+    <footer style="color: black;" class="container-fluid justify-content-center bg-warning p-4 ">
+        <div class="row justify-content-center">
+            <div class="col-md-4 mx-5 text-dark">
+                <span style="font-size: 12px;">© 2022 Kamran Baloch - All rights reserved</span>
+            </div>
+            <div class="col-md-4  ">
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100055937113067"><i
+                        style="color: black;" class="fa  fa-2x fa-facebook-official mx-3" aria-hidden="true"></i></a>
+                <a target="_blank" href="https://twitter.com/Kamran_baluch1"> <i style="color: black;"
+                        class="fa fa-2x fa-twitter mx-3" aria-hidden="true"></i></a>
+                <a target="_blank" href="https://www.instagram.com/kamran_baloch__/"><i style="color: black;"
+                        class="fa  fa-2x fa-instagram mx-3 " aria-hidden="true"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/in/kamran-baloch/"><i style="color: black;"
+                        class="fa  fa-2x fa-linkedin mx-3" aria-hidden="true"></i></a>
+                <a target="_blank" href="https://github.com/kamranBaloch1"><i style="color: black;"
+                        class="fa fa-2x fa-github" aria-hidden="true"></i></a>
+
+            </div>
+
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <!-- Bootstrap js code  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+
+
+
+
+
+
+        </script>
+    <script>
+        var menu_btn = document.querySelector("#menu-btn")
+        var sidebar = document.querySelector("#sidebar")
+        var container = document.querySelector(".my-container")
+        menu_btn.addEventListener("click", () => {
+            sidebar.classList.toggle("active-nav")
+            container.classList.toggle("active-cont")
+        })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>{{myproject.name}}</title>
+</head>
+
+<body style="background-color:#0A0A0A ;">
+
+
+    <div style="width: 100%;height:70vh;background-color:#1F1F1F ;"
+        class="container-fluid  text-white d-flex align-items-center justify-content-center">
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <h2>{{myproject.name}}</h2>
+                <hr>
+                <span style="font-size: 13px;"> - By {{myproject.author}}</span>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="container  mt-5 text-white d-flex justify-content-center">
+
+        <div class="row">
+
+            <div class="col-md-12 mx-auto">
+                <h2 class="text-primary">Introduction</h2>
+                <hr>
+                <span style="font-size: 15px;font-style: oblique;letter-spacing: 1.42px;"> 
+                    {{myproject.intro}}</span>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="container mt-5 mb-5 ">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img width="100%" height="500px" src="/media/{{myproject.img1}}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img width="100%" height="500px"  src="/media/{{myproject.img2}}" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img width="100%" height="500px" src="/media/{{myproject.img3}}" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+        </div>
+   
+        </div>
+
+        <div class="container mb-5  mt-5 text-white d-flex justify-content-center">
+
+            <div class="row">
+    
+                <div class="col-md-12 mx-auto">
+                    <h2 class="text-primary">Description</h2>
+                    <hr>
+                    <span style="font-size: 15px;font-style:inherit;letter-spacing: 3px;"> 
+                        {{myproject.desc}}</span>
+                </div>
+    
+    
+            </div>
+    
+    
+        </div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+     .blogTitle:hover{
+      text-decoration: underline;
+      color: grey;
+     }
+    </style>
+    <title>Blogs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body style="background-color: #F3F4F6;">
+    
+    <nav style="background-color: #0F1B29"  class="navbar   navbar-expand-lg ">
+      <div class="container-fluid ">
+      
+        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 text-white mb-lg-0 mx-auto">
+            <li class="nav-item ">
+              <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link active text-white" aria-current="page" href="/blogs">Blogs</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link active text-white" aria-current="page" href="/allprojects">Projects</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link active text-white" aria-current="page" href="/contact">Contact</a>
+            </li>
+          
+          
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+
+
+
+
+
+
+
+
+      <div class="contaiener-fluid  mt-5">
+        {%for blog in blogs%}
+       <div class="row">
+        <div style="border-radius: 10px;" class="col-md-8 mx-auto p-4 bg-white mt-3"  >
+           <span>{{blog.release_date}}</span>
+
+           <a  style="text-decoration: none;color: black; " href="/blogpost/{{blog.slug}}"> <h4 class="blogTitle">{{blog.title}}</h4></a>
+          <a href="/blogpost/{{blog.slug}}"><img width="600px" height="300px" src="/media/{{blog.tumbnail}}" alt="" srcset=""></a>
+          <br/>
+           <a href="/blogpost/{{blog.slug}}"><button class="btn btb-outline-dark  mt-3 mb-5">Read More </button></a>
+        </div>
+       </div>
+       {%endfor%}
+      </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
